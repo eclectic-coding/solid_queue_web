@@ -1,3 +1,7 @@
+require "rails"
+require "active_model/railtie"
+require "active_job/railtie"
+require "active_record/railtie"
 require "solid_queue"
 require "pagy"
 require "pagy/toolbox/paginators/method"
