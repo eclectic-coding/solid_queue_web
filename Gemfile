@@ -12,6 +12,7 @@ gem "sqlite3"
 gem "rubocop-rails-omakase", require: false
 
 gem "bundler-audit", require: false
+gem "brakeman", require: false
 
 gem "rspec-rails"
 gem "simplecov", require: false

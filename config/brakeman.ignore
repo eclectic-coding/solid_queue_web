@@ -1,0 +1,44 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Request Forgery",
+      "warning_code": 7,
+      "fingerprint": "07b7aae35c352de34debcef3c6f460218fd5f84c468fe271542edad6bf1784df",
+      "check_name": "ForgerySetting",
+      "message": "`protect_from_forgery` should be called in `SolidQueueWeb::ApplicationController`",
+      "file": "app/controllers/solid_queue_web/application_controller.rb",
+      "line": 4,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross-site_request_forgery/",
+      "code": null,
+      "render_path": null,
+      "location": {
+        "type": "controller",
+        "controller": "SolidQueueWeb::ApplicationController"
+      },
+      "user_input": null,
+      "confidence": "High",
+      "note": "Rails default_protect_from_forgery is enabled for apps; engine inherits ActionController::Base."
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "eff59a5cd5015b44457f3c013171a33bab7fd7b5042a9fe7c7600808ae2a2604",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "app/controllers/solid_queue_web/history_controller.rb",
+      "line": 32,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "Arel.sql(\"#{@sort} #{(@direction == \"asc\") ? (\"ASC\") : (\"DESC\")}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "SolidQueueWeb::HistoryController",
+        "method": "sort_expression"
+      },
+      "user_input": "@sort",
+      "confidence": "Medium",
+      "note": "@sort is restricted to an allowlist via presence_in(sortable_columns); direction is ASC/DESC only."
+    }
+  ],
+  "brakeman_version": "8.1.0"
+}
