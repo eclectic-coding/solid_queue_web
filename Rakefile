@@ -9,7 +9,12 @@ RuboCop::RakeTask.new
 RSpec::Core::RakeTask.new(:spec)
 Bundler::Audit::Task.new
 
-task default: ["bundle:audit:update", "bundle:audit:check", :rubocop, :spec]
+desc "Run Brakeman static security analysis"
+task :brakeman do
+  sh "bundle exec brakeman -q --no-pager --force-scan --skip-files spec/"
+end
+
+task default: ["bundle:audit:update", "bundle:audit:check", :brakeman, :rubocop, :spec]
 
 namespace :dev do
   def dummy_env
