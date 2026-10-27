@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump `crass` from 1.0.7 to 1.0.8 to address GHSA-pq4g-8rxf-4g29 (CSS sanitizer bypass via incorrect tokenization of bad URLs)
+
 ### Fixed
 
 - `bin/rails generate` (and other commands that load `lib/solid_queue_web/engine` directly) no longer fail with `uninitialized constant Rails::Engine` — the engine now requires `rails`, `active_model/railtie`, `active_job/railtie`, and `active_record/railtie` before `solid_queue`
